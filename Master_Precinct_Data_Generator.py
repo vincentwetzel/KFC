@@ -124,6 +124,8 @@ for gop_file, all_generic_voter_file in input_files_list.items():
         print("Writing precinct " + precinct + " to output file...")
         list_of_final_data_frames: List[pandas.DataFrame] = list()
         for df in list_of_output_data_frames_for_precinct:
+			# TODO: This OrderedDict is formatted incorrectly and won't properly preserve the order.
+			# TODO: See here: https://stackoverflow.com/questions/36539396/how-to-create-a-dataframe-while-preserving-order-of-the-columns
             output_df = pandas.DataFrame(OrderedDict({"Response": "",
                                                       "StreetNumber": pandas.Series(df["StreetNumber"]),
                                                       "StreetName": pandas.Series(df["StreetName"]),
